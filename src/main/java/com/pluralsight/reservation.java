@@ -3,18 +3,10 @@ package com.pluralsight;
 public class reservation {
 
     private int numberOfNights;
-    private boolean isWeekend;
+    private boolean weekend;
     private String roomType;
-    private double getPrice;
+    private double price;
     private double reservationTotal;
-
-    public double getReservationTotal() {
-        return reservationTotal;
-    }
-
-    public double getGetPrice() {
-        return getPrice;
-    }
 
     public int getNumberOfNights() {
         return numberOfNights;
@@ -25,18 +17,40 @@ public class reservation {
     }
 
     public boolean isWeekend() {
-        return isWeekend;
+        return weekend;
     }
 
     public void setWeekend(boolean weekend) {
-        isWeekend = weekend;
+        this.weekend = weekend;
     }
-              // room can be king or double
+
     public String getRoomType() {
         return roomType;
     }
 
+
     public void setRoomType(String roomType) {
         this.roomType = roomType;
     }
+
+    public double getPrice() {
+        if (this.roomType.equalsIgnoreCase("king")) {
+            price = 139;
+        } else if (this.roomType.equalsIgnoreCase("double")) {
+            price = 124;
+        }
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getReservationTotal() {
+        return reservationTotal;
+    }
+
+    public void setReservationTotal(double reservationTotal) {
+        this.reservationTotal = reservationTotal;
+    }
 }
+
