@@ -38,7 +38,10 @@ public class reservation {
             price = 139;
         } else if (this.roomType.equalsIgnoreCase("double")) {
             price = 124;
+        } else {
+            price = 0;
         }
+        return price;
     }
 
     public void setPrice(double price) {

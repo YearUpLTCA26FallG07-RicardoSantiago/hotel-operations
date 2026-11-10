@@ -12,6 +12,7 @@ public class Main {
                 
                 1) Check in
                 2) Check out
+                2) Clean a room
                  
                 0) Exit""");
 
