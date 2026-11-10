@@ -1,11 +1,17 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
+
+
 public class room {
+
+    static Scanner scanner = new Scanner(System.in);
 
     private int numberOfBeds;
     private double priceOfRoom;
-    private boolean isDirty;
-    private boolean isOccupied;
+    private static boolean isDirty;
+    private static boolean isOccupied;
 
     public room(int numberOfBeds, double priceOfRoom, boolean isDirty, boolean isOccupied) {
         this.numberOfBeds = numberOfBeds;
@@ -53,7 +59,7 @@ public class room {
         return false;
     }
 
-    public void checkin () {
+    public static void checkin () {
         System.out.print("--------------------------------------------------");
         System.out.println("            Check in succesful");
         System.out.print("--------------------------------------------------");
@@ -61,7 +67,7 @@ public class room {
         isOccupied=true;
     }
 
-    public void checkout () {
+    public static void checkout () {
         System.out.print("--------------------------------------------------");
         System.out.println("Thanks for staying with us. Have a nice Day!");
         System.out.print("--------------------------------------------------");
@@ -70,7 +76,7 @@ public class room {
         isOccupied=false;
     }
 
-    public void callToCleanRoom () {
+    public static void callToCleanRoom () {
         System.out.print("-------------------------------------------------------------");
         System.out.println("Cleaning has been ordered, room will be cleaned shortly");
         System.out.print("-------------------------------------------------------------");
@@ -84,22 +90,58 @@ public class room {
                 getNumberOfBeds(), getPriceOfRoom(), isOccupied(), isDirty(), isAvailable());
 
     }
-    public void frontDesk () {
+    public static void frontDesk () {
+        boolean frontDesk= true;
 
-        System.out.println("""
-                ----------------------------------------
-                                
-                                WELCOME
-                                
-                ----------------------------------------
-                What would you like to do?
-                ----------------------------------------
-                
-                1) Check in
-                2) Check out
-                2) Clean a room
-                 
-                0) Exit""");
+                while(frontDesk) {
+                    System.out.println("""
+                            ----------------------------------------
+                                           WELCOME 
+                            ----------------------------------------
+                            What would you like to do?
+                            ----------------------------------------
+                            
+                            1) Check in
+                            2) Check out
+                            3) Clean a room
+                            
+                            0) Exit
+                            
+                            ----------------------------------------
+                            """);
+
+                    int choice;
+
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("Invalid input. Please enter a number 1-5");
+                        scanner.nextLine();
+                }
+
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (choice) {
+                        case 1:
+                            checkin();
+                            break;
+//
+                        case 2:
+                            checkout();
+                            break;
+
+                        case 3:
+                            callToCleanRoom();
+                            break;
+
+                        case 4:
+                            //exit();
+                            break;
+
+
+
+
+
+
     }
 }
 
