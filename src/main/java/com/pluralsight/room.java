@@ -16,8 +16,8 @@ public class room {
     public room(int numberOfBeds, double priceOfRoom, boolean isDirty, boolean isOccupied) {
         this.numberOfBeds = numberOfBeds;
         this.priceOfRoom = priceOfRoom;
-        this.isDirty = isDirty;
-        this.isOccupied = isOccupied;
+        room.isDirty = isDirty;
+        room.isOccupied = isOccupied;
     }
 
     public int getNumberOfBeds() {
@@ -91,58 +91,59 @@ public class room {
 
     }
     public static void frontDesk () {
-        boolean frontDesk= true;
+        boolean frontDesk = true;
 
-                while(frontDesk) {
-                    System.out.println("""
-                            ----------------------------------------
-                                           WELCOME 
-                            ----------------------------------------
-                            What would you like to do?
-                            ----------------------------------------
-                            
-                            1) Check in
-                            2) Check out
-                            3) Clean a room
-                            
-                            0) Exit
-                            
-                            ----------------------------------------
-                            """);
+        while (frontDesk) {
+            System.out.println("""
+                    ----------------------------------------
+                                   WELCOME 
+                    ----------------------------------------
+                    What would you like to do?
+                    ----------------------------------------
+                    
+                    1) Check in
+                    2) Check out
+                    3) Clean a room
+                    
+                    0) Exit
+                    
+                    ----------------------------------------
+                    """);
 
-                    int choice;
+            int choice;
 
-                    while (!scanner.hasNextInt()) {
-                        System.out.println("Invalid input. Please enter a number 1-5");
-                        scanner.nextLine();
-                }
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number 1-5");
+                scanner.nextLine();
+            }
 
-                    choice = scanner.nextInt();
-                    scanner.nextLine();
+            choice = scanner.nextInt();
+            scanner.nextLine();
 
-                    switch (choice) {
-                        case 1:
-                            checkin();
-                            break;
+            switch (choice) {
+                case 1:
+                    checkin();
+                    break;
 //
-                        case 2:
-                            checkout();
-                            break;
+                case 2:
+                    checkout();
+                    break;
 
-                        case 3:
-                            callToCleanRoom();
-                            break;
+                case 3:
+                    callToCleanRoom();
+                    break;
 
-                        case 4:
-                            //exit();
-                            break;
+                case 4:
+                    frontDesk = false;
+
+                    System.out.println("Have a nice day!");
+                    break;
+            }
+        }
 
 
 
-
-
-
+        }
     }
-}
 
 

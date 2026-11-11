@@ -10,6 +10,19 @@ public class Employee {
     private int regularHours;
     private int overtimeHours;
 
+    public Employee(double employeeID, String name, String department, double payRate, int hoursWorked) {
+        this.employeeID = employeeID;
+        this.name = name;
+        this.department = department;
+        this.payRate = payRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+
+
+
+
+
     public int getRegularHours() {
         return regularHours;
     }
